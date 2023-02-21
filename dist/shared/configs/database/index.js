@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Database = void 0;
 const knex_1 = __importDefault(require("knex"));
+const knex_paginate_1 = require("knex-paginate");
 class Database {
     constructor() { }
     static getInstance() {
@@ -17,13 +18,9 @@ class Database {
                     user: process.env.DB_USER,
                     password: process.env.DB_PASSWORD,
                     database: process.env.DB_NAME
-                },
-                pool: {
-                    afterCreate: (conn) => {
-                        console.log(conn);
-                    },
                 }
             });
+            (0, knex_paginate_1.attachPaginate)();
         }
         return Database.instance;
     }

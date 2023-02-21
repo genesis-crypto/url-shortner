@@ -1,4 +1,5 @@
 import knex, {Knex} from 'knex'
+import {attachPaginate} from 'knex-paginate'
 
 class Database {
     private static instance: Knex
@@ -15,13 +16,9 @@ class Database {
                     user: process.env.DB_USER,
                     password: process.env.DB_PASSWORD,
                     database: process.env.DB_NAME
-                },
-                pool: {
-                    afterCreate: (conn: any) => {
-                        console.log(conn)
-                    },
                 }
             })
+            attachPaginate()
         }
 
         return Database.instance
