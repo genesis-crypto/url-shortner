@@ -10,4 +10,4 @@ exports.route = route;
 const getOneUser = (0, controllers_1.makeGetOneUser)();
 const getManyUser = (0, controllers_1.makeGetManyUser)();
 route.get('/', getManyUser.handle);
-route.get('/:id', getOneUser.handle);
+route.get('/:uuid', getOneUser.handle);

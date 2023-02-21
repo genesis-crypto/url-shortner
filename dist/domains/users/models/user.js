@@ -20,5 +20,10 @@ class UserModel {
             return yield this.user_table().paginate({ perPage: 10, currentPage: page });
         });
     }
+    getOneUser(uuid) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.user_table().select('*').where('id', '=', uuid);
+        });
+    }
 }
 exports.UserModel = UserModel;

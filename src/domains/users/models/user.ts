@@ -18,4 +18,8 @@ export class UserModel {
     async getAllUsers(page: number) {
         return await this.user_table().paginate({perPage: 10, currentPage: page})
     }
+
+    async getOneUser(uuid: string) {
+        return await this.user_table().select('*').where('id', '=', uuid)
+    }
 }

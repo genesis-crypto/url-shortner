@@ -12,8 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetManyUser = void 0;
 const user_1 = require("../models/user");
 class GetManyUser {
-    constructor() {
-    }
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const query = req.query;
@@ -22,7 +20,7 @@ class GetManyUser {
             }
             const page = parseInt(query.page);
             const data = yield new user_1.UserModel().getAllUsers(page);
-            return res.status(200).send({ data });
+            return res.status(200).send(data);
         });
     }
 }

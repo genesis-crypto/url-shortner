@@ -8,6 +8,6 @@ const getOneUser = makeGetOneUser()
 const getManyUser = makeGetManyUser()
 
 route.get('/', getManyUser.handle)
-route.get('/:id', getOneUser.handle)
+route.get('/:uuid', getOneUser.handle)
 
 export { route, users_path }

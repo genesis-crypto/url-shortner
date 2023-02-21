@@ -2,10 +2,6 @@ import { Request, Response } from "express";
 import { UserModel } from '../models/user'
 
 export class GetManyUser {
-
-    constructor() {
-    }
-
     async handle(req: Request, res: Response) {
         const query = req.query
 
@@ -17,6 +13,6 @@ export class GetManyUser {
         
         const data = await new UserModel().getAllUsers(page)
 
-        return res.status(200).send({data})
+        return res.status(200).send(data)
     }
 }
