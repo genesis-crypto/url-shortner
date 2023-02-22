@@ -27,7 +27,7 @@ class UserModel {
     }
     updateOneUser(uuid, payload) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.user_table().update(payload).where('id', '=', uuid);
+            return yield this.user_table().update(payload).where('id', '=', uuid).then(() => true).catch(() => false);
         });
     }
     deleteOneUser(uuid) {

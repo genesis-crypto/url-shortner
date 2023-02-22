@@ -16,7 +16,7 @@ class GetManyUser {
         return __awaiter(this, void 0, void 0, function* () {
             const query = req.query;
             if (!query.page) {
-                return res.status(400).json({ message: 'Missing param' });
+                return res.status(400).json({ message: 'missing param' });
             }
             const page = parseInt(query.page);
             const data = yield new user_1.UserModel().getAllUsers(page);

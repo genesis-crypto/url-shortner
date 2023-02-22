@@ -10,10 +10,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PatchUser = void 0;
+const user_1 = require("../models/user");
 class PatchUser {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return res.status(200).send('todo');
+            const { params, body } = req;
+            if (!body.name || !params.uuid) {
+                return res.status(400).send('missing content or params');
+            }
+            const result = yield new user_1.UserModel().updateOneUser(params.uuid, body);
+            return res.status(200).send(result);
         });
     }
 }
