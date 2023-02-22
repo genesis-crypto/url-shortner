@@ -5,7 +5,7 @@ export async function up(knex: Knex): Promise<void> {
     return await knex.schema.createTableIfNotExists('users', (table) => {
         table.uuid('id').primary()
         table.string('name').notNullable()
-        table.timestamps()
+        table.timestamps(true, true)
     })
 }
 

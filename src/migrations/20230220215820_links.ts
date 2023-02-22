@@ -7,7 +7,7 @@ export async function up(knex: Knex): Promise<void> {
         table.string('url').notNullable()
         table.string('hash').notNullable()
         table.uuid('user_id').references('id').inTable('users').notNullable().onDelete('CASCADE')
-        table.timestamps()
+        table.timestamps(true, true)
     })
 }
 
