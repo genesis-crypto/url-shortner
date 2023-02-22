@@ -1,4 +1,4 @@
-import { Knex } from "knex";
+import knex, { Knex } from "knex";
 import { Database } from '../../../shared/configs/database'
 
 interface User {
@@ -16,10 +16,22 @@ export class UserModel {
     }
 
     async getAllUsers(page: number) {
-        return await this.user_table().paginate({perPage: 10, currentPage: page})
+        return await this.user_table().paginate({ perPage: 10, currentPage: page })
     }
 
     async getOneUser(uuid: string) {
         return await this.user_table().select('*').where('id', '=', uuid)
+    }
+
+    async updateOneUser(uuid: string, payload: Record<string, any>) {
+        return await this.user_table().update(payload).where('id', '=', uuid)
+    }
+
+    async deleteOneUser(uuid: string) {
+        return await this.user_table().delete().where('id', '=', uuid)
+    }
+
+    async createOneUser(payload: Record<string, any>) {
+        return await this.user_table().insert(payload).then(() => true).catch(() => false)
     }
 }
