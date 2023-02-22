@@ -7,7 +7,7 @@ export class GetOneUser implements Controller{
         const params = req.params
 
         if (!params.uuid) {
-            return res.status(400).json({ message: 'Missing param' })
+            return res.status(400).json({ message: 'missing param' })
         }
         const data = await new UserModel().getOneUser(params.uuid as string)
 
