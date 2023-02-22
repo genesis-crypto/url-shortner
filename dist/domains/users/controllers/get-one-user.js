@@ -16,7 +16,7 @@ class GetOneUser {
         return __awaiter(this, void 0, void 0, function* () {
             const params = req.params;
             if (!params.uuid) {
-                return res.status(400).json({ message: 'Missing param' });
+                return res.status(400).json({ message: 'missing param' });
             }
             const data = yield new user_1.UserModel().getOneUser(params.uuid);
             return res.status(200).send({ data });

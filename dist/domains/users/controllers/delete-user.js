@@ -10,10 +10,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteUser = void 0;
+const user_1 = require("../models/user");
 class DeleteUser {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return res.status(200).send('todo');
+            const params = req.params;
+            if (!params.uuid) {
+                return res.status(400).json({ message: 'missing param' });
+            }
+            const result = new user_1.UserModel().deleteOneUser(params.uuid);
+            if (!result) {
+                return res.status(500).send('failed to delete');
+            }
+            return res.status(200).send();
         });
     }
 }

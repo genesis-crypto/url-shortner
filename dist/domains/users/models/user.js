@@ -32,7 +32,7 @@ class UserModel {
     }
     deleteOneUser(uuid) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.user_table().delete().where('id', '=', uuid);
+            return yield this.user_table().delete().where('id', '=', uuid).then(() => true).catch(() => false);
         });
     }
     createOneUser(payload) {
