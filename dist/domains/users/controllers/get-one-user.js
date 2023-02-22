@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetOneUser = void 0;
 const user_1 = require("../models/user");
 class GetOneUser {
-    constructor() { }
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const params = req.params;

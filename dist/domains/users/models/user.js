@@ -25,5 +25,20 @@ class UserModel {
             return yield this.user_table().select('*').where('id', '=', uuid);
         });
     }
+    updateOneUser(uuid, payload) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.user_table().update(payload).where('id', '=', uuid);
+        });
+    }
+    deleteOneUser(uuid) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.user_table().delete().where('id', '=', uuid);
+        });
+    }
+    createOneUser(payload) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.user_table().insert(payload).then(() => true).catch(() => false);
+        });
+    }
 }
 exports.UserModel = UserModel;

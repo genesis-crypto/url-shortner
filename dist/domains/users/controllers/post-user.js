@@ -9,20 +9,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.down = exports.up = void 0;
-function up(knex) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return yield knex.schema.createTableIfNotExists('users', (table) => {
-            table.uuid('id').primary();
-            table.string('name').notNullable();
-            table.timestamps(true, true);
+exports.PostUser = void 0;
+const user_1 = require("../models/user");
+const uuid_1 = require("uuid");
+class PostUser {
+    handle(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const body = req.body;
+            if (!body.name) {
+                return res.status(400).send('missing content');
+            }
+            const payload = {
+                id: (0, uuid_1.v4)(),
+                name: body.name
+            };
+            const result = yield new user_1.UserModel().createOneUser(payload);
+            if (!result) {
+                return res.status(500).send('failed to create user');
+            }
+            return res.status(201).send();
         });
-    });
+    }
 }
-exports.up = up;
-function down(knex) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return yield knex.schema.dropTableIfExists('users');
-    });
-}
-exports.down = down;
+exports.PostUser = PostUser;

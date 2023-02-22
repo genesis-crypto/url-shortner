@@ -9,20 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.down = exports.up = void 0;
-function up(knex) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return yield knex.schema.createTableIfNotExists('users', (table) => {
-            table.uuid('id').primary();
-            table.string('name').notNullable();
-            table.timestamps(true, true);
+exports.DeleteUser = void 0;
+class DeleteUser {
+    handle(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return res.status(200).send('todo');
         });
-    });
+    }
 }
-exports.up = up;
-function down(knex) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return yield knex.schema.dropTableIfExists('users');
-    });
-}
-exports.down = down;
+exports.DeleteUser = DeleteUser;
