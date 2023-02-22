@@ -1,7 +1,8 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express'
 import { UserModel } from '../models/user'
+import { Controller } from '../../../shared/interfaces/controller.interface'
 
-export class GetManyUser {
+export class GetManyUser implements Controller {
     async handle(req: Request, res: Response) {
         const query = req.query
 
