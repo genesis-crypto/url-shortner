@@ -24,7 +24,7 @@ export class UserModel {
     }
 
     async updateOneUser(uuid: string, payload: Record<string, any>) {
-        return await this.user_table().update(payload).where('id', '=', uuid)
+        return await this.user_table().update(payload).where('id', '=', uuid).then(() => true).catch(() => false)
     }
 
     async deleteOneUser(uuid: string) {
