@@ -7,7 +7,7 @@ export class GetManyUser implements Controller {
         const query = req.query
 
         if (!query.page) {
-            return res.status(400).json({message: 'Missing param'})
+            return res.status(400).json({message: 'missing param'})
         }
 
         const page = parseInt(query.page as string)
