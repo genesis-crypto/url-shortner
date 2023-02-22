@@ -28,7 +28,7 @@ export class UserModel {
     }
 
     async deleteOneUser(uuid: string) {
-        return await this.user_table().delete().where('id', '=', uuid)
+        return await this.user_table().delete().where('id', '=', uuid).then(() => true).catch(() => false)
     }
 
     async createOneUser(payload: Record<string, any>) {
