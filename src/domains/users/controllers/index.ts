@@ -1,8 +1,8 @@
-import { GetOneUser } from "./get-one-user"
-import { GetManyUser } from "./get-many-user"
-import { PostUser } from "./post-user"
-import { DeleteUser } from "./delete-user"
-import { PatchUser } from "./patch-user"
+import { GetOneUser } from './get-one-user'
+import { GetManyUser } from './get-many-user'
+import { PostUser } from './post-user'
+import { DeleteUser } from './delete-user'
+import { PatchUser } from './patch-user'
 
 function makeGetOneUser() {
     return new GetOneUser()
