@@ -1,4 +1,3 @@
-import knex, { Knex } from "knex";
 import { Database } from '../../../shared/configs/database'
 
 interface User {
