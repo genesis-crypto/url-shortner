@@ -39,9 +39,11 @@ const path_1 = __importDefault(require("path"));
 const dotenv = __importStar(require("dotenv"));
 const http_1 = require("./shared/configs/http");
 const router_1 = require("./domains/users/router");
+const router_2 = require("./domains/links/router");
 const env_path = path_1.default.join(__dirname, '.env');
 dotenv.config({ path: env_path });
 http_1.app.use(router_1.users_path, router_1.route);
+http_1.app.use(router_2.links_path, router_2.route);
 http_1.app.listen(3000, () => __awaiter(void 0, void 0, void 0, function* () {
     console.log('server running on 3000');
 }));
