@@ -9,7 +9,8 @@
     "migrate:rollback": "cd dist && npx knex migrate:rollback",
     "compile": "tsc -p tsconfig.json --watch",
     "start:dev": "nodemon dist/index.js",
-    "start:prod": "node dist/index.js"
+    "start:prod": "node dist/index.js",
+    "test:apache": "cd tests && apache.sh"
   },
   "repository": {
     "type": "git",
