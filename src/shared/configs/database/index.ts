@@ -1,10 +1,10 @@
-import knex, {Knex} from 'knex'
-import {attachPaginate} from 'knex-paginate'
+import knex, { Knex } from 'knex'
+import { attachPaginate } from 'knex-paginate'
 
 class Database {
     private static instance: Knex
 
-    private constructor() {}
+    private constructor() { }
 
     public static getInstance(): Knex {
         if (!Database.instance) {

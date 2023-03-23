@@ -17,7 +17,7 @@ export class PostUser implements Controller {
         }
 
         const result = await new UserModel().createOneUser(payload)
-
+        console.log(result)
         if (!result) {
             return res.status(500).send('failed to create user')
         }

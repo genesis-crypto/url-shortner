@@ -7,9 +7,9 @@
     "migrate:up": "cd dist && npx knex migrate:latest",
     "migrate:down": "cd dist && npx knex migrate:down",
     "migrate:rollback": "cd dist && npx knex migrate:rollback",
-    "compile": "tsc -p tsconfig.json --watch",
-    "start:dev": "nodemon dist/index.js",
-    "start:prod": "node dist/index.js",
+    "compile": "npx tsc -p tsconfig.json",
+    "start:dev": "export NODE_OPTIONS=--max_old_space_size=4096 && nodemon dist/index.js",
+    "start:prod": "export NODE_OPTIONS=--max_old_space_size=4096 && node dist/index.js",
     "test:apache": "cd tests && apache.sh"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "knex-paginate": "^3.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.1.2",
+    "redis": "^4.6.5",
     "shortid": "^2.2.16",
     "swagger-ui-express": "^4.6.1",
     "uuid": "^9.0.0"
